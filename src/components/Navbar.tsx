@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { accent } from "@/lib/theme";
+import { BASE_PATH, WIN_DOWNLOAD_URL } from "@/lib/config";
 
 const navLinks = [
   { label: "Casos de uso", href: "#casos" },
@@ -22,7 +23,7 @@ export default function Navbar() {
     }}>
       <div className="nav-inner">
         <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
-          <img src="/logo.ico" alt="FleetTabs" width={31} height={31} style={{ borderRadius: 9, boxShadow: `0 4px 12px ${accent.ring}` }} />
+          <img src={`${BASE_PATH}/logo.ico`} alt="FleetTabs" width={31} height={31} style={{ borderRadius: 9, boxShadow: `0 4px 12px ${accent.ring}` }} />
           <span style={{ fontFamily: "var(--font-space)", fontWeight: 700, fontSize: 18, letterSpacing: "-.02em" }}>FleetTabs</span>
         </div>
 
@@ -33,11 +34,14 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="/FleetTabs-v0.2.0-win-x64.zip"
+            href={WIN_DOWNLOAD_URL}
             download
-            style={{ display: "inline-flex", alignItems: "center", padding: "9px 16px", borderRadius: 10, background: accent.grad, color: "#fff", fontWeight: 700, fontSize: 14, boxShadow: `0 6px 16px ${accent.ring}` }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "9px 16px", borderRadius: 10, background: accent.grad, color: "#fff", fontWeight: 700, fontSize: 14, boxShadow: `0 6px 16px ${accent.ring}` }}
           >
-            Descargar
+            <span style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, width: 13, height: 13, flexShrink: 0 }}>
+              {[0,1,2,3].map(i => <span key={i} style={{ background: "#fff", borderRadius: 1 }} />)}
+            </span>
+            Descargar · Windows
           </a>
         </nav>
 
@@ -45,7 +49,7 @@ export default function Navbar() {
           className="nav-hamburger"
           onClick={() => setOpen(!open)}
           aria-label="Menú"
-          style={{ background: "none", border: "none", cursor: "pointer", padding: 6, color: "#0d1320", display: "flex", alignItems: "center" }}
+          style={{ background: "none", border: "none", cursor: "pointer", padding: 6, color: "#0d1320" }}
         >
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             {open ? (
@@ -73,7 +77,7 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href="/FleetTabs-v0.2.0-win-x64.zip"
+          href={WIN_DOWNLOAD_URL}
           download
           style={{ display: "inline-flex", justifyContent: "center", marginTop: 8, padding: "12px 20px", borderRadius: 10, background: accent.grad, color: "#fff", fontWeight: 700, fontSize: 15, boxShadow: `0 6px 16px ${accent.ring}` }}
         >

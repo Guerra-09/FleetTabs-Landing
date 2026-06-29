@@ -109,7 +109,7 @@ kbd { font-family: 'Space Grotesk', monospace; }
    ════════════════════════════ */
 @media (max-width: 768px) {
   .nav-links    { display: none; }
-  .nav-hamburger { display: flex; }
+  .nav-hamburger { display: flex; align-items: center; }
 
   .section-pad  { padding: 60px 20px; }
   .section-pad-sm { padding: 48px 20px; }

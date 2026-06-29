@@ -1,6 +1,19 @@
+"use client";
+
 import { accent } from "@/lib/theme";
+import { BASE_PATH, WIN_DOWNLOAD_URL } from "@/lib/config";
+
+function useOS() {
+  if (typeof window === "undefined") return null;
+  const ua = navigator.userAgent;
+  if (/Windows/.test(ua)) return "windows";
+  if (/Mac/.test(ua)) return "mac";
+  return "other";
+}
 
 export default function Hero() {
+  const os = useOS();
+
   return (
     <section style={{ position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: `radial-gradient(58% 46% at 50% -6%, ${accent.soft}, transparent 70%)` }} />
@@ -25,7 +38,7 @@ export default function Hero() {
 
         <div className="hero-buttons">
           <a
-            href="/FleetTabs-v0.2.0-win-x64.zip"
+            href={WIN_DOWNLOAD_URL}
             download
             style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "15px 24px", borderRadius: 13, background: accent.grad, color: "#fff", fontWeight: 700, fontSize: 16, boxShadow: `0 10px 24px ${accent.ring}` }}
           >
@@ -43,13 +56,19 @@ export default function Hero() {
           </span>
         </div>
 
-        <div style={{ marginTop: 16, fontSize: 13, color: "#8a96a6", fontWeight: 500 }}>
+        {os && os !== "windows" && (
+          <div style={{ marginTop: 12, fontSize: 13, color: "#e07b00", fontWeight: 500 }}>
+            ⚠ Parece que estás en {os === "mac" ? "macOS" : "Linux"} — FleetTabs es solo para Windows por ahora.
+          </div>
+        )}
+
+        <div style={{ marginTop: os && os !== "windows" ? 8 : 16, fontSize: 13, color: "#8a96a6", fontWeight: 500 }}>
           Gratis · portable · sin instalación · Windows 10/11 (64-bit)
         </div>
 
         <div style={{ position: "relative", margin: "60px auto 0", maxWidth: 980, width: "100%", borderRadius: 18, overflow: "hidden", border: "1px solid #e4e9f0", boxShadow: "0 36px 70px -24px rgba(13,19,32,.30),0 8px 24px rgba(13,19,32,.06)" }}>
           <img
-            src="/images/tabs-preview.gif"
+            src={`${BASE_PATH}/images/tabs-preview.gif`}
             alt="FleetTabs en acción — barra de pestañas con múltiples ventanas"
             style={{ width: "100%", height: "auto", display: "block" }}
           />

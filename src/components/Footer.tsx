@@ -1,9 +1,11 @@
+import { BASE_PATH } from "@/lib/config";
+
 export default function Footer() {
   return (
     <footer style={{ borderTop: "1px solid #e4e9f0", background: "#fff" }}>
       <div className="footer-inner">
         <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
-          <img src="/logo.ico" alt="FleetTabs" width={30} height={30} style={{ borderRadius: 9 }} />
+          <img src={`${BASE_PATH}/logo.ico`} alt="FleetTabs" width={30} height={30} style={{ borderRadius: 9 }} />
           <div style={{ lineHeight: 1.3 }}>
             <div style={{ fontFamily: "var(--font-space)", fontWeight: 700, fontSize: 15 }}>FleetTabs</div>
             <div style={{ fontSize: 12, color: "#8a96a6" }}>© 2026 · Creado por Guerra</div>
