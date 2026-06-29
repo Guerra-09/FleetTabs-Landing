@@ -40,8 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large binaries — distribuir via GitHub Releases
-/public/*.zip
 
 # Claude Code internal files
 CLAUDE.md
