@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { accent } from "@/lib/theme";
-import { BASE_PATH, WIN_DOWNLOAD_URL } from "@/lib/config";
+import { BASE_PATH, WIN_STORE_URL } from "@/lib/config";
 
 const navLinks = [
   { label: "Casos de uso", href: "#casos" },
@@ -34,8 +34,9 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href={WIN_DOWNLOAD_URL}
-            download
+            href={WIN_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "9px 16px", borderRadius: 10, background: accent.grad, color: "#fff", fontWeight: 700, fontSize: 14, boxShadow: `0 6px 16px ${accent.ring}` }}
           >
             <span style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, width: 13, height: 13, flexShrink: 0 }}>
@@ -77,8 +78,9 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href={WIN_DOWNLOAD_URL}
-          download
+          href={WIN_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{ display: "inline-flex", justifyContent: "center", marginTop: 8, padding: "12px 20px", borderRadius: 10, background: accent.grad, color: "#fff", fontWeight: 700, fontSize: 15, boxShadow: `0 6px 16px ${accent.ring}` }}
         >
           Descargar para Windows

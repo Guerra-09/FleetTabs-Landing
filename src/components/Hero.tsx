@@ -1,7 +1,7 @@
 "use client";
 
 import { accent } from "@/lib/theme";
-import { BASE_PATH, WIN_DOWNLOAD_URL } from "@/lib/config";
+import { BASE_PATH, WIN_STORE_URL } from "@/lib/config";
 
 function useOS() {
   if (typeof window === "undefined") return null;
@@ -38,8 +38,9 @@ export default function Hero() {
 
         <div className="hero-buttons">
           <a
-            href={WIN_DOWNLOAD_URL}
-            download
+            href={WIN_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "15px 24px", borderRadius: 13, background: accent.grad, color: "#fff", fontWeight: 700, fontSize: 16, boxShadow: `0 10px 24px ${accent.ring}` }}
           >
             <span style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, width: 16, height: 16, flexShrink: 0 }}>
@@ -63,7 +64,7 @@ export default function Hero() {
         )}
 
         <div style={{ marginTop: os && os !== "windows" ? 8 : 16, fontSize: 13, color: "#8a96a6", fontWeight: 500 }}>
-          Gratis · portable · sin instalación · Windows 10/11 (64-bit)
+          Gratis · desde Microsoft Store · Windows 10/11 (64-bit)
         </div>
 
         <div style={{ position: "relative", margin: "60px auto 0", maxWidth: 980, width: "100%", borderRadius: 18, overflow: "hidden", border: "1px solid #e4e9f0", boxShadow: "0 36px 70px -24px rgba(13,19,32,.30),0 8px 24px rgba(13,19,32,.06)" }}>

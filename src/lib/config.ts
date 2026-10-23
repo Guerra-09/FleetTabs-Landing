@@ -1,2 +1,5 @@
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-export const WIN_DOWNLOAD_URL = `${BASE_PATH}/FleetTabs-v0.2.1-win-x64.zip`;
+
+// Microsoft Store listing for FleetTabs (Store ID 9PDKCGX1C0BW). Installing from the Store avoids
+// the "unknown publisher" / SmartScreen warnings, because Microsoft signs the package.
+export const WIN_STORE_URL = "https://apps.microsoft.com/detail/9PDKCGX1C0BW";
